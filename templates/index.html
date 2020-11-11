@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Recommend Movies</title>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main_style.css') }}">
+  </head>
+  <body>
+    <header>
+		<div container>
+			<h1>Recommend_Movies#</h1>
+		</div>
+
+	</header>
+    <body>
+	<h2>映画名検索</h2>
+	<p>キーワードを含む映画の名前を検索します</p>
+	<form action="/search" method="POST" enctype="multipart/form-data">
+		<div>
+			<label for="keyword">キーワード：</label>
+			<input type="text" id="keyword" name="keyword" placeholder="キーワード">
+		</div>
+		<div>
+			<input type="submit" value="決定">
+		</div>
+	</form>
+	{{ search_movie}}
+	{% for table in movie_name %}
+            {{ table|safe }}
+	{% endfor %}
+	</body>
+
+    <body>
+	<h2>あなたに合う映画をレコメンドします</h2>
+	<p>{{ message }}</p>
+	<form action="/" method="POST" enctype="multipart/form-data">
+		<div>
+			<label for="name">映画名：</label>
+			<input type="text" id="name" name="name" placeholder="映画名">
+		</div>
+		<div>
+			<input type="submit" value="決定">
+		</div>
+	</form>
+	{{ recommend}}
+	{% for table in tables %}
+            {{ table|safe }}
+	{% endfor %}
+    </body>
+  </body>
+</html>
