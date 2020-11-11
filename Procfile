@@ -1,1 +1,1 @@
-web: python app.py
+web: gunicorn movie_recommend.wsgi
