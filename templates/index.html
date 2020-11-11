@@ -11,9 +11,9 @@
 		<div container>
 			<h1>Recommend_Movies#</h1>
 		</div>
-
 	</header>
-    <body>
+
+    <div class="search-movie">
 	<h2>映画名検索</h2>
 	<p>キーワードを含む映画の名前を検索します</p>
 	<form action="/search" method="POST" enctype="multipart/form-data">
@@ -29,9 +29,9 @@
 	{% for table in movie_name %}
             {{ table|safe }}
 	{% endfor %}
-	</body>
+	</div>
 
-    <body>
+    <div class="recommend">
 	<h2>あなたに合う映画をレコメンドします</h2>
 	<p>{{ message }}</p>
 	<form action="/" method="POST" enctype="multipart/form-data">
@@ -47,6 +47,6 @@
 	{% for table in tables %}
             {{ table|safe }}
 	{% endfor %}
-    </body>
+    </div>
   </body>
 </html>
